@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* flex-direction 을 colum 으로 지정해야 
+  <h2>와 <p>가 붙지 않음. 수직병렬 됨. */
+}
+
+h2 {
+  color: white;
+}
+
+.bigScreen {
+  background-color: violet;
+}
+
+.mediumScreen {
+  background-color: blanchedalmond;
+}
+
+.smallScreen {
+  background-color: brown;
+}
