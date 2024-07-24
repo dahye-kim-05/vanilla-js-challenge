@@ -1,20 +1,18 @@
-const GameForm = document.querySelector("#game-form");
-const GenerateInput = GameForm.querySelector("#generate-number");
-const GuessInput = GameForm.querySelector("#guess-number");
+const GameForm = document.getElementById("game-form");
+const GenerateInput = document.getElementById("generate-number");
+const GuessInput = GameForm.querySelector("input#guess-number");
 
 const playResult = document.querySelector("#result span:first-child");
 const yourResult = document.querySelector("#result span:last-child");
 
 
-function handleMaxNumber() {
-  const maxNumber = GenerateInput.value;
-  GuessInput.max = maxNumber;
-}
-
 function gameNumber(event) {
   event.preventDefault();
+  if (GenerateInput.value === "" && GuessInput.value === "") {
+    return;
+  }
   const maxNumber = GenerateInput.value;
-  const guessNumber = parseInt(GuessInput.value);
+  const guessNumber = parseInt(GuessInput.value, 10);
   const machineChoice = Math.ceil(Math.random() * parseInt(maxNumber));
   playResult.innerText = `You chose: ${guessNumber}, the machine chose: ${machineChoice}`;
   if (guessNumber === machineChoice) {
@@ -24,7 +22,6 @@ function gameNumber(event) {
   }
 };
 
-GenerateInput.addEventListener("input", handleMaxNumber);
 GameForm.addEventListener("submit", gameNumber);
 
 
